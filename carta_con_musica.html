@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta para ti ♡</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #ffd6e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .hearts {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hearts span {
+      position: absolute;
+      bottom: -10%;
+      font-size: 24px;
+      color: rgba(255,0,80,0.6);
+      animation: float 8s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+    .sheet {
+      position: relative;
+      z-index: 1;
+      background: #fff8f0;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+      max-width: 750px;
+      width: 90%;
+    }
+    h1 { text-align: center; margin-bottom: 20px; }
+    .body p { margin: 14px 0; line-height: 1.6; }
+    .signature { margin-top: 20px; font-weight: bold; text-align: right; }
+    #preview { text-align: center; }
+    .open {
+      padding: 10px 18px;
+      background: #ff85a2;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .1s ease;
+    }
+    .open:active { transform: scale(.96); }
+    .reveal { display: none; animation: fade .5s ease; }
+    @keyframes fade { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:none} }
+    .sticker { position: absolute; width: 120px; z-index: 2; }
+    .hello { top: -40px; left: -40px; transform: rotate(-15deg); }
+    .spidey { bottom: -40px; right: -40px; transform: rotate(15deg); }
+  </style>
+</head>
+<body>
+  <div class="hearts">
+    <span style="left:10%;">❤</span>
+    <span style="left:30%; animation-delay:2s;">❤</span>
+    <span style="left:50%; animation-delay:4s;">❤</span>
+    <span style="left:70%; animation-delay:1s;">❤</span>
+    <span style="left:90%; animation-delay:3s;">❤</span>
+  </div>
+
+  <main class="sheet">
+    <img src="https://pngimg.com/d/hello_kitty_PNG47.png" alt="Hello Kitty" class="sticker hello">
+    <img src="https://pngimg.com/uploads/spider_man/spider_man_PNG81.png" alt="Spiderman" class="sticker spidey">
+
+    <h1>Para ti ♡</h1>
+    <div id="preview">
+      <p>Haz clic para abrir la carta.</p>
+      <button class="open" id="btnOpen">Abrir carta</button>
+    </div>
+    <section id="carta" class="body reveal">
+      <p>muy bien, aquí voy…</p>
+      <p>como sabes no me llevo bien que digamos con mi familia, no le tengo la confianza para contarles mis cosas, no cuento con ellos para lo que me gusta, y me eh quedado estancado, por qué?, me pregunto lo mismo, siempre encuentro una salida a todo, y aún no logro encontrar esta, se que ya te eh hecho esperar mucho, y no quiero que esperes más, quisiera decirlo en persona, pero no me saldrían las palabras, eh querido contarles de ti, créeme que quiero hacerlo, pero nada más no puedo, sigo sin confiar en ellos...</p>
+      <p>te ama este vato loco ♡</p>
+      <p class="signature">— MT ♡</p>
+      <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/K3Z7BqvMXb4?autoplay=1&loop=1&playlist=K3Z7BqvMXb4" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <script>
+    const btn = document.getElementById('btnOpen');
+    const carta = document.getElementById('carta');
+    const preview = document.getElementById('preview');
+    btn.addEventListener('click', () => {
+      preview.style.display = 'none';
+      carta.style.display = 'block';
+      carta.scrollIntoView({ behavior:'smooth' });
+    });
+  </script>
+</body>
+</html>
